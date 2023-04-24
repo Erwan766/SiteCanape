@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Canape{% endblock %}
+
+{% block body %}
+
+    <div class="titles">
+        <h1>Nos produits</h1>
+        <h2>Une gamme d'articles exclusifs</h2>
+    </div>
+        <section class="items" id="items"> 
+        {% for canape in listeCanape %}
+            <a href="{{ url("infoCanape", {id: canape.id}) }}">
+                <article>
+                    <img src="/images/{{ canape.image }}" alt="{{canape.altTxt}}">
+                    <h3 class="productName">{{ canape.nom }}</h3>
+                    <p class="productDescription">{{ canape.description }}</p>
+                </article>
+            </a>
+        {% endfor %} 
+        </section>
+{% endblock %}
